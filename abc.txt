@@ -1,0 +1,2 @@
+Hi Checking the git thing
+Adding new line<test2>
