@@ -1,2 +1,3 @@
 # BirthDayManager
-casual coding examples.
+App for managing birthdays.
+ 
