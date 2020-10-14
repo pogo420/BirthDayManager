@@ -19,7 +19,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9339fb43-8292-4ea2-9102-db6b98f6f83d" name="Default" comment="" />
+    <list default="true" id="9339fb43-8292-4ea2-9102-db6b98f6f83d" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/DbManager.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/DbManager.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/SqLiteHelper.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/SqLiteHelper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/StatusCodes.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/StatusCodes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Db/SchemaCreate.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Db/SchemaCreate.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Db/db_setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Db/db_setup.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/env-setup.sh" beforeDir="false" afterPath="$PROJECT_DIR$/env-setup.sh" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,12 +45,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="59" />
-    <option name="y" value="44" />
-    <option name="width" value="1297" />
-    <option name="height" value="704" />
-  </component>
   <component name="ProjectId" id="1ihAWuGVVkmQr3RFfHLMbm69P2z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -48,8 +52,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -63,6 +69,7 @@
     <servers />
   </component>
   <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Dockerfile" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -75,11 +82,24 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="355" y="199" width="645" height="403" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602593789147">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="355" y="199" width="645" height="403" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1366.741@0.27.1366.741" timestamp="1602593789147" />
+    <state x="461" y="158" width="424" height="491" key="FileChooserDialogImpl" timestamp="1602587574412">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="461" y="158" width="424" height="491" key="FileChooserDialogImpl/0.27.1366.741@0.27.1366.741" timestamp="1602587574412" />
+    <state x="172" y="31" width="1022" height="737" key="SettingsEditor" timestamp="1602587495842">
+      <screen x="0" y="27" width="1366" height="741" />
+    </state>
+    <state x="172" y="31" width="1022" height="737" key="SettingsEditor/0.27.1366.741@0.27.1366.741" timestamp="1602587495842" />
     <state x="408" y="289" width="540" height="223" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1602349864788">
       <screen x="0" y="27" width="1366" height="741" />
     </state>

@@ -1,0 +1,1 @@
+sqlite3 $SQLITE_DB < $DB_SETUP_SCRIPT
