@@ -1,5 +1,6 @@
 from Application.SqLiteHelper import SqLiteHelper
 import os
+import pytest
 
 
 def test_connection_test():
@@ -30,3 +31,11 @@ def test_delete_data():
     test_string = SqLiteHelper(db_path).create_connection().create_cursor().read_data(
         "SELECT * FROM birthday_data where name = 'gupeh'")  # querying data
     assert test_string == []
+
+
+def test_sql_syntax_error():
+    db_path = os.environ["SQLITE_DB"]
+    with pytest.raises(Exception) as exp:
+        SqLiteHelper(db_path).create_connection().create_cursor().read_data(
+            "SELECT * FRO birthday_data where name = 'gupeh'")  # querying data
+    assert str(exp.value) == """Issue: near "FRO": syntax error"""
