@@ -80,13 +80,3 @@ class SqLiteHelper:
             return StatusCodes.DATA_DELETE_SUCCESS
         except Exception as e:
             print_error(e)
-
-
-if __name__ == "__main__":
-    db_path = os.environ["SQLITE_DB"]
-    print(SqLiteHelper(db_path).create_connection().create_cursor().test_connection())
-    print(SqLiteHelper(db_path).create_connection().create_cursor().read_data("SELECT DATE('now')"))
-    print(SqLiteHelper(db_path).create_connection().create_cursor().insert_data("name, birthdate", "'gupeh', '02-10'", "birthday_data"))
-    print(SqLiteHelper(db_path).create_connection().create_cursor().read_data("SELECT * FROM birthday_data"))
-    print(SqLiteHelper(db_path).create_connection().create_cursor().delete_data("name", "'gupeh'", "birthday_data"))
-    print(SqLiteHelper(db_path).create_connection().create_cursor().read_data("SELECT * FROM birthday_data"))
