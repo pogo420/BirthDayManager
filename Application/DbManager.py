@@ -1,7 +1,5 @@
 from typing import Tuple
-
 from Application.SqLiteHelper import SqLiteHelper
-import os
 
 
 class DbManager:
@@ -22,10 +20,3 @@ class DbManager:
 
     def update_data(self, column, old_value, new_value, table):
         pass
-
-
-if __name__ == "__main__":
-    db_path = os.environ["SQLITE_DB"]
-    db = DbManager(SqLiteHelper, {"db_path": db_path})
-    print(db.read_data("SELECT DATE('now')"))
-    print(db.insert_data(("name", "birthdate"), ("gupeh", "02-10"), "birthday_data"))
