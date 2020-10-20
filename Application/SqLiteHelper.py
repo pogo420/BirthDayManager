@@ -1,6 +1,12 @@
+"""
+Author: Arnab Mukherjee
+Future Plans:
+1. Dynamic datatype capability
+2. Multi column query capability for insert and delete.
+"""
+
 import sqlite3
-import os
-from typing import Optional, List, Tuple
+from typing import Optional, List, Tuple, Union
 
 from Application.StatusCodes import StatusCodes
 from Application.Utilities import is_null, print_error
@@ -41,7 +47,7 @@ class SqLiteHelper:
         except Exception as e:
             print_error(e)
 
-    def read_data(self, query) -> Optional[List[Tuple]]:
+    def read_data(self, query) -> Union[List[Tuple], StatusCodes]:
         """Method to read data based on the query
             read_data("SELECT * FROM birthday_data")
         """
@@ -49,6 +55,7 @@ class SqLiteHelper:
             return self.cursor.execute(query).fetchall()
         except Exception as e:
             print_error(e)
+            return StatusCodes.DATA_READ_FAILURE
 
     def insert_data(self, column_str: str, values_str: str, table: str) -> Optional[StatusCodes]:
         """Method to insert row
@@ -63,6 +70,7 @@ class SqLiteHelper:
             return StatusCodes.DATA_INSERT_SUCCESS
         except Exception as e:
             print_error(e)
+            return StatusCodes.DATA_INSERT_FAILURE
 
     def delete_data(self, column_str: str, values_str: str, table: str, isEqual = 1) -> Optional[StatusCodes]:
         """Method to delete row/rows based on single column
@@ -80,3 +88,4 @@ class SqLiteHelper:
             return StatusCodes.DATA_DELETE_SUCCESS
         except Exception as e:
             print_error(e)
+            return StatusCodes.DATA_DELETE_FAILURE
