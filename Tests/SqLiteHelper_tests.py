@@ -1,13 +1,5 @@
 from Application.SqLiteHelper import SqLiteHelper
-import os
 from Application.StatusCodes import StatusCodes
-import pytest
-
-
-@pytest.fixture(scope="session")
-def env_setup():
-    db_path = os.environ["SQLITE_DB"]
-    yield db_path
 
 
 def test_connection_test(env_setup):
