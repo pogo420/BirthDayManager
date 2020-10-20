@@ -1,3 +1,11 @@
+"""
+Author: Arnab Mukherjee
+Capabilities:
+    1. Assuming data as json objects.
+    2. Parsing data for insert/Update/Delete operation.
+    3. Returning Success/Failure message as json object.
+"""
+
 from typing import Tuple
 from Application.SqLiteHelper import SqLiteHelper
 
