@@ -11,3 +11,15 @@ class StatusCodes(Enum):
     DATA_UPDATE_SUCCESS = "DATA UPDATE SUCCESS"
     DATA_UPDATE_FAILURE = "DATA UPDATE FAILURE"
 
+
+class ProcessingType(Enum):
+    INSERT = "INSERT"
+    UPDATE = "UPDATE"
+    DELETE = "DELETE"
+    READ = "READ"
+
+
+class ResponseStatus(Enum):
+    SUCCESS = "SUCCESS"
+    ERROR = "ERROR"
+

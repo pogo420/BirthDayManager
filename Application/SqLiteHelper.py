@@ -8,7 +8,7 @@ Future Plans:
 import sqlite3
 from typing import Optional, List, Tuple, Union
 
-from Application.StatusCodes import StatusCodes
+from Application.StaticCodes import StatusCodes
 from Application.Utilities import is_null, print_error
 
 

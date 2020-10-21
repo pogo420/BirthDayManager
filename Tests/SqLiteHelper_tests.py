@@ -1,5 +1,5 @@
 from Application.SqLiteHelper import SqLiteHelper
-from Application.StatusCodes import StatusCodes
+from Application.StaticCodes import StatusCodes
 
 
 def test_connection_test(env_setup):
