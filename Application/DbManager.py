@@ -7,7 +7,7 @@ Capabilities:
     4. Returning Success/Failure message as json object.
 """
 
-from typing import Tuple, Optional, Union
+from typing import Tuple, Optional, Union, List
 from Application.SqLiteHelper import SqLiteHelper
 from Application.StaticCodes import StatusCodes, ResponseStatus, ProcessingType
 
@@ -38,6 +38,23 @@ class DbManager:
             .test_connection()
         return test_string
 
+    def read_data(self, inp_message: dict) -> Union[List[Tuple], StatusCodes]:
+        """Method for reading, assumption is search by single column"""
+        columns = []
+        values = []
+        for i in inp_message.keys():
+            columns.append(i)
+            values.append("'" + inp_message.get(i) + "'")
+
+        columns_str = ",".join(columns[:1])
+        values_str = ",".join(values[:1])
+        query = f"SELECT * FROM {self.master_table} WHERE {columns_str} = {values_str}"
+        read_response = self.db_helper(self.db_path) \
+            .create_connection() \
+            .create_cursor() \
+            .read_data(query)
+        return read_response
+
     def insert_data(self, inp_message: dict) -> StatusCodes:
         """Method for insert into database"""
         columns = []
@@ -62,8 +79,8 @@ class DbManager:
             columns.append(i)
             values.append("'" + inp_message.get(i) + "'")
 
-        columns_str = ",".join(columns)
-        values_str = ",".join(values)
+        columns_str = ",".join(columns[:1])
+        values_str = ",".join(values[:1])
 
         delete_response = self.db_helper(self.db_path)\
             .create_connection()\
@@ -72,7 +89,7 @@ class DbManager:
         return delete_response
 
     def processor(self, inp_message):
-        """Method for orchest.rating db traffic"""
+        """Method for orchestrating db traffic"""
         if inp_message.get("type") == ProcessingType.INSERT.value:
             response = self.insert_data(inp_message.get("payload"))
             if response == StatusCodes.DATA_INSERT_SUCCESS:
@@ -87,4 +104,10 @@ class DbManager:
             elif response == StatusCodes.DATA_DELETE_FAILURE:
                 return generate_response(ResponseStatus.ERROR, response.value)
 
+        elif inp_message.get("type") == ProcessingType.READ.value:
+            response = self.read_data(inp_message.get("payload"))
+            if response != StatusCodes.DATA_READ_FAILURE:
+                return generate_response(ResponseStatus.SUCCESS, response)
+            elif response == StatusCodes.DATA_READ_FAILURE:
+                return generate_response(ResponseStatus.ERROR, response.value)
 

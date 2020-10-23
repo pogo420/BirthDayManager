@@ -51,6 +51,32 @@ def db_delete_test_data():
 
 
 @pytest.fixture(scope="session")
+def db_read_test_data():
+    """function for delete test cases"""
+    read_data = {
+        "valid": {
+            "type": "READ",
+            "payload": {
+                "name": "gupeh"
+            }
+        },
+        "invalid1": {
+            "type": "READ",
+            "payload": {
+                "name_": "gupeh"
+            }
+        },
+        "invalid2": {
+            "type": "READ",
+            "payload": {
+                "name": "abc"
+            }
+        }
+    }
+    yield read_data
+
+
+@pytest.fixture(scope="session")
 def response_test_data():
     response = {
         "valid_insert": {
@@ -75,6 +101,24 @@ def response_test_data():
             "status": "ERROR",
             "payload": {
                 "message": "DATA DELETE FAILURE"
+            }
+        },
+        "valid_read": {
+            "status": "SUCCESS",
+            "payload": {
+                "message": [('gupeh', '02-10')]
+            }
+        },
+        "invalid_read1": {
+            "status": "ERROR",
+            "payload": {
+                "message": "DATA READ FAILURE"
+            }
+        },
+        "invalid_read2": {
+            "status": "SUCCESS",
+            "payload": {
+                "message": []
             }
         }
     }
