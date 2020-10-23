@@ -54,12 +54,37 @@ class DbManager:
             .insert_data(columns_str, values_str, self.master_table)
         return insert_response
 
+    def delete_data(self, inp_message: dict) -> StatusCodes:
+        """Method for delete data from database, assumption is search by single column"""
+        columns = []
+        values = []
+        for i in inp_message.keys():
+            columns.append(i)
+            values.append("'" + inp_message.get(i) + "'")
+
+        columns_str = ",".join(columns)
+        values_str = ",".join(values)
+
+        delete_response = self.db_helper(self.db_path)\
+            .create_connection()\
+            .create_cursor()\
+            .delete_data(columns_str, values_str, self.master_table)
+        return delete_response
+
     def processor(self, inp_message):
-        """Method for orchestrating db traffic"""
+        """Method for orchest.rating db traffic"""
         if inp_message.get("type") == ProcessingType.INSERT.value:
             response = self.insert_data(inp_message.get("payload"))
             if response == StatusCodes.DATA_INSERT_SUCCESS:
                 return generate_response(ResponseStatus.SUCCESS, response.value)
+            elif response == StatusCodes.DATA_INSERT_FAILURE:
+                return generate_response(ResponseStatus.ERROR, response.value)
 
+        elif inp_message.get("type") == ProcessingType.DELETE.value:
+            response = self.delete_data(inp_message.get("payload"))
+            if response == StatusCodes.DATA_DELETE_SUCCESS:
+                return generate_response(ResponseStatus.SUCCESS, response.value)
+            elif response == StatusCodes.DATA_DELETE_FAILURE:
+                return generate_response(ResponseStatus.ERROR, response.value)
 
 
