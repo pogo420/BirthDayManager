@@ -111,3 +111,5 @@ class DbManager:
             elif response == StatusCodes.DATA_READ_FAILURE:
                 return generate_response(ResponseStatus.ERROR, response.value)
 
+        else:
+            return generate_response(ResponseStatus.ERROR, "UNKNOWN PROCESSING TYPE")
