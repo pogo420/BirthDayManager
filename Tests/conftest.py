@@ -1,6 +1,8 @@
 import os
 import pytest
 
+from Application import UserQueryHandler
+
 
 @pytest.fixture(scope="session")
 def env_setup():
@@ -123,3 +125,11 @@ def response_test_data():
         }
     }
     yield response
+
+
+@pytest.fixture(scope="session")
+def client():
+    """Important function for flask testing"""
+    UserQueryHandler.app.config['TESTING'] = True
+    with UserQueryHandler.app.test_client() as client:
+        yield client
