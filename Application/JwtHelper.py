@@ -6,7 +6,7 @@ class JwtHelper:
     """Helper class for JWT features"""
 
     def __init__(self):
-        self.expiration_duration = None
+        self.expiration_duration = 10  # default, its dangerous without expiration
         self.data = None
         self.secret = None
 
@@ -33,4 +33,3 @@ class JwtHelper:
 
     def validate_token(self, token: bytes):
         return jwt.decode(jwt=token, key=self.secret, algorithms="HS256")
-
