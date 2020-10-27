@@ -133,3 +133,14 @@ def client():
     UserQueryHandler.app.config['TESTING'] = True
     with UserQueryHandler.app.test_client() as client:
         yield client
+
+
+@pytest.fixture(scope="session")
+def jwt_details():
+    """Function for all JWT testing"""
+    return {
+        "data": {
+            "hel": 1234},
+        "secret": "secret",
+        "exp_duration": 10
+    }
