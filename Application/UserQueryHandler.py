@@ -1,7 +1,7 @@
 """
 File is essential for routing requests
 """
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from werkzeug.routing import BaseConverter
 
 app = Flask(__name__)
@@ -21,6 +21,14 @@ app.url_map.converters['regex'] = RegexConverter
 def test():
     """Web portal Test function"""
     return "Test"
+
+
+@app.route("/authenticate", methods=["GET"])
+def authenticate():
+    """Web portal Test function"""
+    username = request.args.get("username")
+    password = request.args.get("password")
+    return password
 
 
 @app.route('/get/birthday/<regex("[A-Za-z][A-Za-z0-9]+"):username>/', methods=["GET"])
