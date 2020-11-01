@@ -4,6 +4,7 @@ File is essential for routing requests
 from flask import Flask, request
 from werkzeug.routing import BaseConverter
 
+from Application.AuthenticationManager import AuthenticationManager
 from Application.AuthorizationManager import AuthorizationManager
 
 app = Flask(__name__)
@@ -30,8 +31,10 @@ def authenticate():
     """Web portal Test function"""
     username = request.args.get("username")
     password = request.args.get("password")
-    # assuming default authentication
-    return AuthorizationManager().create_token(username)
+    if AuthenticationManager.authenticate(username, password):
+        return AuthorizationManager().create_token(username)
+    else:
+        return
 
 
 @app.route('/auth/get/birthday/<regex("[A-Za-z][A-Za-z0-9]+"):username>/', methods=["GET"])
@@ -42,5 +45,4 @@ def auth_request(username):
         return f"UserId:{username}{token}"
     else:
         return "Not Authorized", 403
-
 
