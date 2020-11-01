@@ -1,3 +1,6 @@
+"""
+Testing script for JwtHelper
+"""
 import pytest
 
 from Application.JwtHelper import JwtHelper

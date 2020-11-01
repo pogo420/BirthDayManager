@@ -1,9 +1,13 @@
+"""
+Testing script for AuthorizationManager class
+"""
+
 from Application.AuthorizationManager import AuthorizationManager
 
 
 def test_create_token():
     """Function for testing token creation check"""
-    token = AuthorizationManager().create_token("gupai")
+    token = AuthorizationManager().create_token("dummy")  # for some random user
     assert token is not None
 
 

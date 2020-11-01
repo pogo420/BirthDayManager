@@ -1,3 +1,7 @@
+"""
+Testing config
+"""
+
 import os
 import pytest
 
@@ -8,6 +12,12 @@ from Application import UserQueryHandler
 def env_setup():
     db_path = os.environ["SQLITE_DB"]
     yield db_path
+
+
+@pytest.fixture(scope="session")
+def env_table():
+    master_table = os.environ["MASTER_TABLE"]
+    yield master_table
 
 
 @pytest.fixture(scope="session")

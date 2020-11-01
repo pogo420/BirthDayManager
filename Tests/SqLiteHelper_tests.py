@@ -1,3 +1,6 @@
+"""
+Test script for SqLiteHelper class
+"""
 from Application.SqLiteHelper import SqLiteHelper
 from Application.StaticCodes import StatusCodes
 

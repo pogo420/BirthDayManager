@@ -1,3 +1,7 @@
+"""
+Testing script for UserQueryTranslator
+"""
+
 from Application.UserQueryTranslator import UserQueryTranslator
 
 

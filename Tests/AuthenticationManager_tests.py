@@ -1,3 +1,7 @@
+"""
+Testing script for AuthenticationManager class
+"""
+
 from Application.AuthenticationManager import AuthenticationManager
 
 

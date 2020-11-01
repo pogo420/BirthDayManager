@@ -1,3 +1,6 @@
+"""
+Testing script for UserQueryHandler
+"""
 
 
 def test_connection(client):
