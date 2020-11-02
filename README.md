@@ -8,6 +8,7 @@ Pointers
    2. Using get request with token to process data
     `http://127.0.0.1:5000/auth/username/process-data`
     Header: Authentication Bearer jwt-token
+    
     Body: 
     - `{"type": "READ", "payload": {"name": "gupeh"}}`
     - `{"type": "DELETE", "payload": {"name": "gupeh"}}`
