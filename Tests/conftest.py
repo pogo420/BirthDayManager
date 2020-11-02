@@ -6,6 +6,7 @@ import os
 import pytest
 
 from Application import UserQueryHandler
+from Application.UserQueryTranslator import UserQueryTranslator
 
 
 @pytest.fixture(scope="session")
@@ -18,6 +19,13 @@ def env_setup():
 def env_table():
     master_table = os.environ["MASTER_TABLE"]
     yield master_table
+
+
+@pytest.fixture(scope="session")
+def sample_username():
+    data = {"username": "ola",
+            "password": "ola"}
+    yield data
 
 
 @pytest.fixture(scope="session")
@@ -154,3 +162,4 @@ def jwt_details():
         "secret": "secret",
         "exp_duration": 10
     }
+

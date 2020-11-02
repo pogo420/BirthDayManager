@@ -9,6 +9,6 @@ Pointers
     `http://127.0.0.1:5000/auth/username/process-data`
     Header: Authentication Bearer jwt-token
     Body: 
-    `{"type": "READ", "payload": {"name": "gupeh"}}`
-    `{"type": "DELETE", "payload": {"name": "gupeh"}}`
-    `{"type": "INSERT", "payload": {"name": "gupeh","birthday":"02-11""}}`
+    - `{"type": "READ", "payload": {"name": "gupeh"}}`
+    - `{"type": "DELETE", "payload": {"name": "gupeh"}}`
+    - `{"type": "INSERT", "payload": {"name": "gupeh","birthday":"02-11""}}`
