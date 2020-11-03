@@ -4,3 +4,4 @@ __pycache__/
 .pytest_cache/
 Application/*.pyc
 Tests/.pytest_cache/
+.idea/*
