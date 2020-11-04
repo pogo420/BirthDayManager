@@ -13,3 +13,7 @@ Pointers
     - `{"type": "READ", "payload": {"name": "gupeh"}}`
     - `{"type": "DELETE", "payload": {"name": "gupeh"}}`
     - `{"type": "INSERT", "payload": {"name": "gupeh","birthday":"02-11""}}`
+
+   3. Architecture:
+   
+   ![](https://github.com/pogo420/BirthDayManager/blob/master/birthdaymanager.png)
