@@ -3,4 +3,7 @@ COPY requirements.txt .
 RUN pip install -r requirements.txt
 COPY Application/ .
 COPY Db/ .
-CMD ["python", "Application/SqLiteHelper.py"]
+COPY Tests/ .
+RUN . ./env-setup.sh
+CMD ["python3", "-m", "flask", "run"]
+
