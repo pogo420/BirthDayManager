@@ -26,9 +26,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: setting env values
-        run: . ./env-setup.sh
-
       - name: unit testing
         run: |
           . ./env-setup.sh
