@@ -1,0 +1,2 @@
+docker build -t bdmanager:v1 -f ./docker/Dockerfile .
+docker run -d -p 5000:5000 --name bdm bdmanager:v1
