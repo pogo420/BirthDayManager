@@ -30,7 +30,9 @@ jobs:
         run: . ./env-setup.sh
 
       - name: unit testing
-        run: python -m pytest Tests/*
+        run: |
+          . ./env-setup.sh
+          python -m pytest Tests/*
 
       - name: Docker login
         run: docker login -u $docker_username -p $docker_password
