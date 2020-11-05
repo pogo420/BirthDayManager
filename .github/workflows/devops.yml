@@ -27,7 +27,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: setting env values
-          run: ". ./env-setup.sh"
+        run: . ./env-setup.sh
 
       - name: unit testing
         run: python -m pytest Tests/*
