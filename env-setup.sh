@@ -7,4 +7,3 @@ export JWT_SECRET=dummy-secret-1
 export JWT_EXPIRE=60
 export FLASK_APP=Application.UserQueryHandler.py
 bash ./Db/db_setup.sh
-python3 -m flask run --host=0.0.0.0
