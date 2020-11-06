@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      version: 1.3
+      version: 0.1
       docker_username: ${{ secrets.DOCKER_USERNAME }}
       docker_password: ${{ secrets.DOCKER_PASSWORD }}
 
@@ -35,7 +35,7 @@ jobs:
         run: docker login -u $docker_username -p $docker_password
 
       - name: Build image
-        run: docker build -t am0072008/bdm-flask:$version .
+        run: docker build -t am0072008/bdm-flask:$version -f ./docker/Dockerfile
 
       - name: Pushing spring app image
         run: docker push am0072008/bdm-flask:$version
