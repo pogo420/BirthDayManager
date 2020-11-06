@@ -33,3 +33,9 @@ jobs:
 
       - name: Docker login
         run: docker login -u $docker_username -p $docker_password
+
+      - name: Build image
+        run: docker build -t am0072008/bdm-flask:$version .
+
+      - name: Pushing spring app image
+        run: docker push am0072008/bdm-flask:$version
