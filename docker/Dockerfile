@@ -5,6 +5,7 @@ COPY Application/ Application/
 COPY Db/ Db/
 COPY Tests/  Tests/
 COPY ./docker/docker_entrypoint.sh .
+COPY ./docker/Dockerfile .
 COPY env-setup.sh .
 RUN pip install -r requirements.txt
 RUN apt-get -y update
