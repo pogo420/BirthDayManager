@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: bdm
-          image: am0072008/bdm-flask:latest
+          image: am0072008/bdm-flask:0.1
           ports:
             - containerPort: 5000
 
