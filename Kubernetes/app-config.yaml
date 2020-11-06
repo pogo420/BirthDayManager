@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: bdm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bdm
+  template:
+    metadata:
+      labels:
+        app: bdm
+    spec:
+      containers:
+        - name: bdm
+          image: am0072008/bdm-flask:latest
+          ports:
+            - containerPort: 5000
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: bdm
+spec:
+  selector:
+    app: bdm
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
